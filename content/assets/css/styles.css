@@ -1,0 +1,82 @@
+/*
+
+    Chatty Custom web page styles
+
+*/
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html {
+  height: 100%;
+}
+body {
+    background-image: url("images/overlay.png"), url("images/bg.jpg");
+    background-repeat: repeat, no-repeat;
+    background-size: auto, 100% 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    color: #777777;
+}
+
+header {
+  margin: 2em 0;
+  text-align: center;
+}
+/* Set custom heading & paragraph colours and fonts */
+h1, h2, h3, h4, h5, h6, p {
+    color: black;
+    font-family: Monospace;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    text-align: center;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+h2 {
+  font-weight: 300;
+  margin-top: 0.5em;
+}
+h3{
+    margin-top:0.5em;
+}
+p{
+    padding: 0 1em 1em 1em;
+    font-size:1.3em;
+}
+
+section {
+    margin: 1.5em auto;
+    width: 400px;
+}
+
+.container-fluid{
+    width:65%;
+}
+
+.input-group .form-control {
+    width:100%;
+}
+
+.form-control{
+    height: 39px;
+    border-radius: 0px;
+}
+
+.well{
+    max-height: 325px;
+    min-height: 325px;
+    overflow-y: scroll;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.btn{
+    border-radius: 0px;
+    padding: 11.5px 10px;
+}
+
