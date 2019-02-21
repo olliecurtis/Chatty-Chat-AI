@@ -15,7 +15,7 @@ To be installed before running
 * [NPM](https://www.npmjs.com) - Node package manager
 * [Node](https://nodejs.org/en/) - The runtime environment
 
-You will also need to create a secrets.json file in the root folder so that the application can authorise to the NLU providers. A sample of what this looks like can be found [here]() 
+You will also need to create a secrets.json file in the root folder so that the application can authorise to the NLU providers. A sample of what this looks like can be found [here](https://github.com/BeigeHacker/Chatty-Chat-AI/blob/master/secrets.json) 
 
 ### Installing
 
@@ -58,7 +58,7 @@ Currently this application can be deployed through Heroku
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository]. 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the tags on this repository. 
 
 ## Authors
 
