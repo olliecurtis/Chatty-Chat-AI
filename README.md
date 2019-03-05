@@ -66,8 +66,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Ollie Curtis** - *Developer* - [BeigeHacker](https://github.com/BeigeHacker)
 
 ## License
-
-## Acknowledgments
+License to be confirmed
 
 ## Future Features:
 
