@@ -17,12 +17,12 @@ var watson = require('./NLPs/watson');
 var dialogFlow = require('./NLPs/dialogFlow');
 
 // Define the file paths for the assests
-app.use(express.static(__dirname + '/content/views')); // html
-app.use(express.static(__dirname + '/content/assets')); // js, css, images
+app.use(express.static(__dirname + '../../app/views')); // html
+app.use(express.static(__dirname + '../../app/assets')); // js, css, images
 
 // Here we load the web home page
 app.get('/', function (request, response) {
-	response.sendFile(__dirname + "/content/views/index.html");
+	response.sendFile(__dirname + "../../app/views/index.html");
 });
 
 // Create our server instance
