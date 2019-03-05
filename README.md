@@ -1,6 +1,6 @@
 # Chatty-Chat AI
 
-An application for a agnostic chatbot that will answer simple small talk and a current in development feature is to include getting drink recommendations
+An application for a agnostic chatbot that will answer simple small talk
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ To be installed before running
 * [NPM](https://www.npmjs.com) - Node package manager
 * [Node](https://nodejs.org/en/) - The runtime environment
 
-You will also need to create a secrets.json file in the root folder so that the application can authorise to the NLU providers. A sample of what this looks like can be found [here](https://github.com/BeigeHacker/Chatty-Chat-AI/blob/master/secrets.json) 
+You will also need to create a secrets.json file in the **server** folder so that the application can authorise to the NLU providers. A sample of what this looks like can be found [here](https://github.com/BeigeHacker/Chatty-Chat-AI/blob/master/secrets.json) 
 
 ### Installing
 
@@ -23,6 +23,7 @@ To get the project up and running you will need to run the following:
 
 Install Node modules
 ```
+cd server
 npm install
 ```
 
@@ -48,7 +49,7 @@ Currently this application can be deployed through Heroku
 
 ## Built With
 
-* [apiai](https://www.npmjs.com/package/apiai) - The APIAI (now dialogflow) SDK
+* [dialogflow](https://www.npmjs.com/package/dialogflow) - The DialogFlow SDK
 * [expressjs](https://www.npmjs.com/package/express) - The web framework for running the application
 * [socket.io](https://www.npmjs.com/package/socket.io) - The realtime communication framework for sending messages async to the backend
 * [watson-developer-cloud](https://www.npmjs.com/package/watson-developer-cloud) - The Watson SDK
@@ -68,4 +69,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Acknowledgments
 
+## Future Features:
 
+* Drinks recommendation using the cocktail DB api
+* Upgrade to react
+* Implement MS LUIS
+* Implement component library
