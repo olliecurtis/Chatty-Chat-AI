@@ -1,5 +1,6 @@
 const watsonSdk = require("watson-developer-cloud/assistant/v1");
 const config = require("../secrets");
+const apiHandler = require("../handlers/apiHandler");
 
 var watson = async function(text, client) {
   var assistant = new watsonSdk({
@@ -19,7 +20,14 @@ var watson = async function(text, client) {
         console.log("error:", err);
         client.emit("bot reply", "Sorry, there was an error!");
       } else {
-        client.emit("bot reply", response.output.text);
+        if (response.intents[0].intent.indexOf("Drink") + 1) {
+          client.emit(
+						"bot reply",
+						apiHandler.callAPI(response.intents[0].intent, response.entities)
+          );
+        } else {
+          client.emit("bot reply", response.output.text);
+        }
       }
     }
   );
