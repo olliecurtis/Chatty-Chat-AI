@@ -36,14 +36,22 @@ var dialogFlow = async function(text, client) {
   // Call DialogFlow api
   const aiResp = await sessionClient.detectIntent(aiReq);
   // If we get a result process it otherwise emit an error
+  const response = {
+    type: "text",
+    output: ""
+  };
   if (aiResp[0].queryResult) {
     if (aiResp[0].queryResult.intent.displayName.indexOf("Drink") + 1) {
-      client.emit(
-        "bot reply",
-        apiHandler.callAPI(aiResp[0].queryResult.intent.displayName, null)
+      const drinkToMake = await apiHandler.callAPI(
+        aiResp[0].queryResult.intent.displayName,
+        null
       );
+      response.type = "drink";
+      response.output = drinkToMake;
+      client.emit("bot reply", response);
     } else {
-      client.emit("bot reply", aiResp[0].queryResult.fulfillmentText);
+      response.output = aiResp[0].queryResult.fulfillmentText;
+      client.emit("bot reply", response);
     }
   } else {
     client.emit("bot reply", "Sorry, there was an error!");
