@@ -1,6 +1,6 @@
 const config = require("../secrets");
 var dialogflow = require("dialogflow");
-var drinksAPI = require("../APIs/drinksAPI");
+const apiHandler = require('../handlers/apiHandler');
 
 /**
  * Method to send conversation to DialogFlow
@@ -37,31 +37,14 @@ var dialogFlow = async function(text, client) {
 	const aiResp = await sessionClient.detectIntent(aiReq);
 	// If we get a result process it otherwise emit an error
   if (aiResp[0].queryResult) {
-		client.emit('bot reply', callAPI(aiResp[0].queryResult));
+		if(aiResp[0].queryResult.intent.displayName.indexOf("Drink") + 1){
+			client.emit('bot reply', apiHandler.callAPI(aiResp[0].queryResult.intent.displayName, null));
+		} else {
+			client.emit('bot reply', aiResp[0].queryResult.fulfillmentText);
+		}
   } else {
 		client.emit('bot reply', "Sorry, there was an error!");
   }
 };
-
-/**
- * @description Function that will call a drinks API for fun
- * @param {Object} result - The result from DialogFlow
- * @returns {Object} - Either a message or a drink from the API 
- */
-function callAPI(result) {
-  var url = "";
-  switch (result.intent.displayName) {
-    case "RandomDrink":
-      url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-      return drinksAPI.api(url);
-    case "SpecficDrink":
-      url =
-        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" +
-				result.metadata.entities;
-				return drinksAPI.api(url);
-    default:
-      return result.fulfillmentText;
-  }
-}
 
 module.exports.converse = dialogFlow;
