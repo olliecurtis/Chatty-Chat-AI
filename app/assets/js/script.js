@@ -8,8 +8,28 @@
  */
 
 // Invoke an instance of SpeechRecognition, the controller interface of the Web Speech API for voice recognition
-var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-var rec = new SpeechRec();
+// var SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+// var rec = new SpeechRec();
+
+// Start speech recognition on button click
+// document.querySelector("#listener").addEventListener("click", () => {
+//   rec.start();
+// });
+
+// Retrieve the speech result as text
+// This returns a SpeechRecognitionResult list that contains the result
+// so we can retrieve the text in the array
+// rec.addEventListener("result", event => {
+//   var last = event.results.length - 1;
+//   var input = event.results[last][0].transcript;
+//   // Send the input to the Socket
+//   sendChat(input);
+// });
+
+// Stop listening to voice input
+// rec.addEventListener("speechend", () => {
+//   rec.stop();
+// });
 
 // Instantiate Socket.IO
 var socket = io();
@@ -30,26 +50,6 @@ document.querySelector("#message").addEventListener("click", () => {
   var input = document.getElementById("in-field").value;
   // Send the input to the Socket
   sendChat(input);
-});
-
-// Start speech recognition on button click
-document.querySelector("#listener").addEventListener("click", () => {
-  rec.start();
-});
-
-// Retrieve the speech result as text
-// This returns a SpeechRecognitionResult list that contains the result
-// so we can retrieve the text in the array
-rec.addEventListener("result", event => {
-  var last = event.results.length - 1;
-  var input = event.results[last][0].transcript;
-  // Send the input to the Socket
-  sendChat(input);
-});
-
-// Stop listening to voice input
-rec.addEventListener("speechend", () => {
-  rec.stop();
 });
 
 // Function that generates a synthetic voice and
@@ -91,7 +91,7 @@ function sendChat(textInput) {
     // Send the chat message to the web socket
     socket.emit("chat message", textInput);
   } else {
-    // setChat("Error", "You have not provided an input");
+    setChat("Error", "You have not provided an input");
   }
 }
 

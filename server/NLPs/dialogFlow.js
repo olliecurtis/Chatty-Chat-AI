@@ -1,5 +1,6 @@
 const config = require("../secrets");
-const dialogflow = require("dialogflow");
+const dialogflow = require("@google-cloud/dialogflow");
+const uuid = require("uuid");
 const apiHandler = require("../handlers/apiHandler");
 
 /**
@@ -15,11 +16,14 @@ var dialogFlow = async function(text, client) {
       client_email: config.dialogflow.client_email
     }
   };
+
+  const sessionId = uuid.v4();
+
   // Creating an instance with dialogflow
-  const sessionClient = new dialogflow.SessionsClient(conf);
-  const sessionPath = sessionClient.sessionPath(
+  const sessionClient = new dialogflow.SessionsClient();
+  const sessionPath = sessionClient.projectAgentSessionClient(
     config.dialogflow.appId,
-    config.dialogflow.sessionId
+    sessionId
   );
 
   // Making a request to dialogFlow.

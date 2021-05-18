@@ -2,26 +2,35 @@
   "name": "chatty-ai",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "ISC",
+  "engines": {
+    "node": "^12.13.0",
+    "npm": "^6.12.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:olliecurtis/Chatty-Chat-AI"
+  },
+  "author": "OllieCurtis",
   "keywords": [
     "AI",
     "NLP",
     "Chatbot"
   ],
-  "author": "BeigeHacker",
-  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "format:packagejson": "format-package -w",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "dialogflow": "^0.8.0",
-    "express": "^4.16.1",
-    "socket.io": "^2.4.0",
+    "@google-cloud/dialogflow": "^3.4.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0",
     "watson-developer-cloud": "^3.18.1"
   },
-  "engines": {
-    "node": "^6.11.3"
+  "devDependencies": {
+    "format-package": "^6.1.0"
   }
 }
