@@ -15,13 +15,14 @@
   "author": "BeigeHacker",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "dialogflow": "^0.8.0",
-    "express": "^4.16.1",
-    "socket.io": "^2.4.0",
+    "body-parser": "^1.19.0",
+    "dialogflow": "^4.0.3",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2",
     "watson-developer-cloud": "^3.18.1"
   },
   "engines": {
-    "node": "^6.11.3"
+    "node": "^12.13.0",
+    "npm": "^6.12.0"
   }
 }
